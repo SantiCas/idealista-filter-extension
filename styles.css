@@ -1,0 +1,47 @@
+.idealista-filter-panel {
+    background-color: #f6f6f6;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-family: sans-serif;
+    position: sticky;
+    top: 10px;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.idealista-filter-panel label {
+    font-weight: bold;
+    color: #333;
+}
+
+.idealista-filter-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 20px;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    transition: all 0.2s;
+}
+
+.idealista-filter-btn:hover {
+    background-color: #f0f0f0;
+}
+
+.idealista-filter-btn.active {
+    background-color: #deff00; /* Idealista yellow/green */
+    border-color: #deff00;
+    color: #000;
+    font-weight: bold;
+}
+
+/* Base style for hiding listings */
+article.item.hidden-by-filter {
+    display: none !important;
+}
