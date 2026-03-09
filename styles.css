@@ -45,3 +45,20 @@
 article.item.hidden-by-filter {
     display: none !important;
 }
+
+/* Hide modal completely during ghost clicking so the user doesn't see it flashing */
+body.ghost-clicking-active .modal-contact,
+body.ghost-clicking-active .contact-popup,
+body.ghost-clicking-active [role="dialog"],
+body.ghost-clicking-active .sui-Modal {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transition: none !important;
+    z-index: -1000 !important;
+}
+
+body.ghost-clicking-active .sui-Modal-overlay {
+    opacity: 0 !important;
+    visibility: hidden !important;
+}

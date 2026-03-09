@@ -3,15 +3,23 @@
   "name": "Filtro Particular/Profesional Idealista",
   "version": "1.0",
   "description": "Filtra anuncios de particulares y profesionales en Idealista.",
-  "permissions": ["storage"],
+  "permissions": [
+    "storage"
+  ],
   "icons": {
     "128": "icons/icon128.png"
   },
   "content_scripts": [
     {
-      "matches": ["*://*.idealista.com/*"],
-      "js": ["content.js"],
-      "css": ["styles.css"]
+      "matches": [
+        "*://*.idealista.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "styles.css"
+      ]
     }
   ]
 }
