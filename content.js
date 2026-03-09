@@ -75,7 +75,7 @@
         }
     };
 
-    // 2. EL FILTRO (Panel de UI - Restaurado a la versión anterior que le gustaba al usuario)
+    // 2. EL FILTRO (Panel de UI - Restaurado a la versión original de botones inyectados)
     const createFilterPanel = () => {
         if (document.getElementById('idealista-custom-filter')) return;
 
@@ -83,16 +83,11 @@
 
         const filterContainer = document.createElement('div');
         filterContainer.id = 'idealista-custom-filter';
+        filterContainer.className = 'idealista-filter-panel';
         filterContainer.innerHTML = `
-            <div style="background: #f1f1f1; padding: 10px; margin-bottom: 20px; border: 1px solid #ccc; display: flex; gap: 10px; align-items: center; border-radius: 4px;">
-                <strong>Filtro Custom:</strong>
-                <label style="cursor:pointer; display:flex; align-items:center; gap:5px;">
-                    <input type="radio" name="sellerfilter" value="all" ${currentFilter === 'all' ? 'checked' : ''}> Todos
-                </label>
-                <label style="cursor:pointer; display:flex; align-items:center; gap:5px;">
-                    <input type="radio" name="sellerfilter" value="particular" ${currentFilter === 'particular' ? 'checked' : ''}> Solo Particulares
-                </label>
-            </div>
+            <label>Filtrar por vendedor:</label>
+            <button class="idealista-filter-btn ${currentFilter === 'all' ? 'active' : ''}" data-filter="all">Todos</button>
+            <button class="idealista-filter-btn ${currentFilter === 'particular' ? 'active' : ''}" data-filter="particular">Particulares</button>
         `;
 
         if (document.querySelector('#main-content')) {
@@ -102,14 +97,15 @@
         }
 
         // Event Listeners for buttons
-        const radios = filterContainer.querySelectorAll('input[name="sellerfilter"]');
-        radios.forEach(radio => {
-            radio.addEventListener('change', (e) => {
-                if (e.target.checked) {
-                    currentFilter = e.target.value;
-                    applyFilter();
-                }
-            });
+        filterContainer.addEventListener('click', (e) => {
+            if (e.target.classList.contains('idealista-filter-btn')) {
+                const buttons = filterContainer.querySelectorAll('.idealista-filter-btn');
+                buttons.forEach(btn => btn.classList.remove('active'));
+                e.target.classList.add('active');
+
+                currentFilter = e.target.dataset.filter;
+                applyFilter();
+            }
         });
     };
 

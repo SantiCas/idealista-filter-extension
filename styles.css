@@ -11,7 +11,7 @@
     position: sticky;
     top: 10px;
     z-index: 1000;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .idealista-filter-panel label {
@@ -35,7 +35,8 @@
 }
 
 .idealista-filter-btn.active {
-    background-color: #deff00; /* Idealista yellow/green */
+    background-color: #deff00;
+    /* Idealista yellow/green */
     border-color: #deff00;
     color: #000;
     font-weight: bold;
@@ -44,21 +45,4 @@
 /* Base style for hiding listings */
 article.item.hidden-by-filter {
     display: none !important;
-}
-
-/* Hide modal completely during ghost clicking so the user doesn't see it flashing */
-body.ghost-clicking-active .modal-contact,
-body.ghost-clicking-active .contact-popup,
-body.ghost-clicking-active [role="dialog"],
-body.ghost-clicking-active .sui-Modal {
-    opacity: 0 !important;
-    visibility: hidden !important;
-    pointer-events: none !important;
-    transition: none !important;
-    z-index: -1000 !important;
-}
-
-body.ghost-clicking-active .sui-Modal-overlay {
-    opacity: 0 !important;
-    visibility: hidden !important;
 }
